@@ -365,7 +365,28 @@
     $('#cfg-mes').innerHTML = meses.map((n,i) => `<option value="${i+1}">${n}</option>`).join('');
     $('#cfg-anio').innerHTML = Array.from({length:6},(_,k) => cfg.anio - 1 + k).map(y => `<option value="${y}">${y}</option>`).join('');
     $('#cfg-mes').value = cfg.mes; $('#cfg-anio').value = cfg.anio;
-    $('#btn-guardar').onclick = () => { cfg = {...cfg, mes:+$('#cfg-mes').value, anio:+$('#cfg-anio').value, ruta:$('#cfg-ruta').value.trim() || cfg.ruta, dias:Math.max(1,+$('#cfg-dias').value || 26), presupuesto:Math.max(0,+$('#cfg-presupuesto').value || 0), vscMeta:Math.max(0,+$('#cfg-vsc').value || 0)}; save(KEY_CFG, cfg); renderAll(); alert('Configuración guardada'); };
+    $('#cfg-ruta').value = cfg.ruta;
+    $('#cfg-dias').value = cfg.dias;
+    $('#cfg-presupuesto').value = cfg.presupuesto;
+    $('#cfg-vsc').value = cfg.vscMeta;
+    $('#btn-guardar').onclick = () => {
+      cfg = {
+        ...cfg,
+        mes:+$('#cfg-mes').value,
+        anio:+$('#cfg-anio').value,
+        ruta:$('#cfg-ruta').value.trim() || cfg.ruta,
+        dias:Math.max(1,+$('#cfg-dias').value || 26),
+        presupuesto:Math.max(0,+$('#cfg-presupuesto').value || 0),
+        vscMeta:Math.max(0,+$('#cfg-vsc').value || 0)
+      };
+      save(KEY_CFG, cfg);
+      $('#cfg-ruta').value = cfg.ruta;
+      $('#cfg-dias').value = cfg.dias;
+      $('#cfg-presupuesto').value = cfg.presupuesto;
+      $('#cfg-vsc').value = cfg.vscMeta;
+      renderAll();
+      alert('Configuración guardada');
+    };
     $('#btn-reset').onclick = () => { if(!confirm('Esto borrará todas las ventas del mes actual. ¿Continuar?')) return; sales = sales.filter(v => !(v.ruta===cfg.ruta && v.anio===cfg.anio && v.mes===cfg.mes)); save(KEY_SALES, sales); renderAll(); };
     $('#search').oninput = e => { query = e.target.value; renderNc(); };
     $('#btnClear').onclick = () => { cart = []; renderNc(); };
