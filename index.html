@@ -855,12 +855,13 @@
   }[type] || "Movimiento";
 }
     function historyTypeClass(type){
-      if (type === "USE") return "histUse";
-      if (type === "TRANSFER_OUT") return "histOut";
-      if (type === "TRANSFER_IN" || type === "TRANSFER_APPROVED") return "histIn";
-      if (type === "TRANSFER_REJECTED") return "histReject";
-      return "";
-    }
+  if (type === "USE") return "histUse";
+  if (type === "TRANSFER_OUT") return "histOut";
+  if (type === "TRANSFER_IN") return "histIn";
+  if (type === "TRANSFER_APPROVED") return "ok";
+  if (type === "TRANSFER_REJECTED") return "histReject";
+  return "";
+}
 
     function renderHome() {
       els.hdrTitle.textContent = "Recursos";
