@@ -457,14 +457,7 @@
         </div>
       </section>
     </main>
-
-    <div class="footerBar" id="footerBar" style="display:none;">
-      <div class="footerBtns">
-        <button class="btn secondary" id="btnTransfer" style="display:none;">Transferir</button>
-      </div>
-    </div>
-  </div>
-
+    
   <div class="toast" id="toast"></div>
 
   <div class="modalBack" id="modalBack">
@@ -527,8 +520,7 @@
       lblUpdated: $("lblUpdated"),
       plansList: $("plansList"),
       btnRefresh: $("btnRefresh"),
-      footerBar: $("footerBar"),
-      btnTransfer: $("btnTransfer"),
+
       toast: $("toast"),
       modalBack: $("modalBack"),
       modalTitle: $("modalTitle"),
@@ -883,9 +875,7 @@
       els.btnHistory.style.display = "inline-flex";
       els.btnBell.style.display = "inline-flex";
       els.btnLogout.style.display = "inline-flex";
-      els.footerBar.style.display = "block";
-      els.btnTransfer.style.display = "inline-flex";
-
+     
       const plans = Object.keys(state.saldo || {}).sort();
       els.plansList.innerHTML = "";
 
@@ -1049,8 +1039,6 @@
       els.btnHistory.style.display = "none";
       els.btnBell.style.display = "none";
       els.btnLogout.style.display = "none";
-      els.footerBar.style.display = "none";
-      els.btnTransfer.style.display = "none";
       setBadge(0);
       setScreen("login");
       showToast("Sesión cerrada");
@@ -1272,7 +1260,6 @@
     els.btnLogout.addEventListener("click", logout);
     els.btnHistory.addEventListener("click", openHistoryModal);
     els.btnBell.addEventListener("click", openNotificationsModal);
-    els.btnTransfer.addEventListener("click", () => openTransferModal(null));
 
     els.plansList.addEventListener("click", (e) => {
       const btn = e.target.closest("button");
