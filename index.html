@@ -3,7 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+
   <title>SAP Mobile Admin</title>
+  <meta name="theme-color" content="#000000" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="apple-mobile-web-app-title" content="Cambios" />
+
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
   <style>
     :root {
       --bg: #f3f5f8;
@@ -474,7 +484,6 @@
           <div style="height: 14px"></div>
           <div class="action-row" style="margin-top: 0;">
             <button class="btn btn-primary" id="btnSaveConfig">Guardar</button>
-            
           </div>
         </div>
         <div class="foot-space"></div>
@@ -761,7 +770,7 @@
     els.btnValidatePin.addEventListener('click', validatePin);
     els.pinInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') validatePin(); });
     els.btnRefreshDashboard.addEventListener('click', loadDashboard);
-    
+
     els.btnSaveConfig.addEventListener('click', saveConfig);
     els.btnLock.addEventListener('click', lockSession);
 
