@@ -1,6 +1,6 @@
 {
-  "name": "Control de Cambios",
-  "short_name": "Cambios",
+  "name": "Gestor App",
+  "short_name": "Gestor App",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#000000",
